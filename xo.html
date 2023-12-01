@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body style="background-color: pink;">
+   
+   <div class="position-absolute top-50 start-50 translate-middle">
+    <button id="0" onclick="play()" class="btn btn-light">-</button>
+    <button id="1" onclick="play()" class="btn btn-light">-</button>
+    <button id="2" onclick="play()" class="btn btn-light">-</button><br>
+    <button id="3" onclick="play()" class="btn btn-light">-</button>
+    <button id="4" onclick="play()" class="btn btn-light">-</button>
+    <button id="5" onclick="play()" class="btn btn-light">-</button><br>
+    <button id="6" onclick="play()" class="btn btn-light">-</button>
+    <button id="7" onclick="play()" class="btn btn-light">-</button>
+    <button id="8" onclick="play()" class="btn btn-light">-</button>
+</div>
+    <div id="msg"></div>
+
+    <script>
+        let turn = "x";
+        let counter = 0;
+        let ar = ["-", "-", "-", "-", "-", "-", "-", "-", "-"];
+
+        function play() {
+            if (event.target.innerText == "-" && !checkWin()) {
+                event.target.innerText = turn;
+                ar[event.target.id] = turn;
+                turn = (turn == "x" ? "o" : "x");
+                msg.innerHTML = ` <h1 class="position-absolute top-0 start-50 translate-middle-x" >Turn of player ${turn}</h1>`;
+                counter++;
+
+                if (counter == 9 && !checkWin()) {
+                    msg.innerHTML = `<h1 class="position-absolute top-0 start-50 translate-middle-x" >It's a Tie!</h1>`;
+                }
+            }
+        }
+
+        function checkWin() {
+            // Define winning combinations
+            const winCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]              // Diagonals
+            ];
+
+            // Check if any winning combination is present
+            for (const combo of winCombinations) {
+                const [a, b, c] = combo;
+                if (ar[a] !== "-" && ar[a] === ar[b] && ar[b] === ar[c]) {
+                    msg.innerHTML = `<h1 class="position-absolute top-0 start-50 translate-middle-x" >Player ${ar[a]} wins!</h1>`;
+                    return true; // Game is won
+                }
+            }
+
+            return false; // No winner yet
+        }
+    </script>
+</body>
+
+</html>

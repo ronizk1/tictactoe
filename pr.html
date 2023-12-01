@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- תרגול array -->
+<body>
+    <button onclick="add()">add number</button>
+<input id ="n1" type="">
+    <script>
+let ar = [];
+let smallest = ar[0]
+// small number
+
+//  לאפס מערך 100 מספרים -
+for (let ind = 0; ind < 100; ind++) {
+    ar.push(4)
+    
+}
+
+
+ for (let ind = 0; ind < ar.length; ind++) {
+     if (smallest > ar[ind]) {
+         smallest = ar[ind]
+     }
+}
+//  אם יש מספר קטן מסמאלסט תשווה ביניהם
+ console.log(smallest);
+
+// even numbers
+for (let ind = 0; ind < ar.length; ind++) {
+    if (ar[ind] % 2 == 0) {
+        console.log(ar[ind]);
+    }
+}
+
+// not even numbers
+for (let ind = 0; ind < ar.length; ind++) {
+    if (ar[ind] % 2 == 1) {
+        console.log(ar[ind]);
+    }
+}
+
+// average
+let sum = 0
+for (let ind = 0; ind < ar.length; ind++) {
+    sum += ar[ind]
+}
+console.log(sum / ar.length);
+
+
+// smallest fun
+
+function small(ar) {
+    let smallest = ar[0]
+    for (let ind = 0; ind < ar.length; ind++) {
+    if (smallest > ar[ind]) {
+        smallest = ar[ind]
+    }
+    
+}
+console.log(smallest);
+}
+// קריאה לפונקציה
+small(ar)
+
+// לאפס איי אר למעלה - מספר שיופיע באינפוט
+function add() {
+    ar.push(n1.value)
+    console.log(ar);
+}
+    </script>
+    
+    
+</body>
+</html>

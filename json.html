@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- רשימת מכוניות -->
+<body>
+    company: <input id="ccompany">
+    <br>
+    year: <input id ="cyear">
+    <br>
+    color: <input id ="ccolor">
+
+<br>
+<br>
+
+    <button onclick="addcar()" >add</button>
+    <button onclick="remover()">remove</button>
+    <button onclick="reset()">reset</button>
+    <button onclick="removeSpecificCar(0)">remove first car</button>
+  
+
+    <script>
+let cars = []
+function addcar() {
+    cars.push({"company":ccompany.value , "year":cyear.value, "color":ccolor.value})
+    console.log(cars);
+}
+
+function removecar() {
+    delete cars [cars.length-1]
+    console.log(cars);
+}
+
+function remover() {
+    cars.pop()
+    console.log(cars);
+    
+}
+function reset() {
+    cars = []
+    console.log(cars);
+}
+
+function removeSpecificCar(index) {
+            if (index >= 0 && index < cars.length) {
+                cars.splice(index, 1); // Remove 1 element at the specified index
+                console.log(cars);
+
+            }}  
+
+    </script>
+
+
+</body>
+</html>

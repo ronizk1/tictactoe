@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button><br>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button><br>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button>
+        <button onclick="play()">-</button> 
+        <div id="msg"></div>
+
+        <script>
+            let turn = "x"
+            let counter = 0
+            ar = [turn]
+           
+            function play() {
+                if (event.target.innerText == "-") {
+                    event.target.innerText = turn
+                    turn = (turn == "x" ? "o" : "x")
+                    msg.innerHTML = `<h1>Turn of player ${turn}</h1>`
+                    counter++
+
+                    if (counter == 3 * "x") {
+                        msg.innerHTML = `<h1>Tie</h1>`
+                    }
+                    checkWin()
+                }
+            }
+
+            function checkWin() {
+              
+                    if (counter == 3 * "x") {
+                        msg.innerHTML = `<h1>Tie</h1>`
+                        
+                        // for (let ind = 0; ind < ar.length; ind++) {
+                    
+                }
+
+            }
+
+
+        </script>
+    </body>
+
+</html>
